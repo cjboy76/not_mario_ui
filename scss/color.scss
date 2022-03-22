@@ -1,3 +1,6 @@
+@import "_function.scss";
+
+@include bg_platte("white", #fff);
 .bg-black {
   background-color: black;
 }
@@ -77,16 +80,16 @@
   background-color: yellow;
 }
 .bg-yellow-200 {
-  background-color: rgba($color: #FFFF00, $alpha: 0.2);
+  background-color: rgba($color: #ffff00, $alpha: 0.2);
 }
 .bg-yellow-400 {
-  background-color: rgba($color: #FFFF00, $alpha: 0.4);
+  background-color: rgba($color: #ffff00, $alpha: 0.4);
 }
 .bg-yellow-600 {
-  background-color: rgba($color: #FFFF00, $alpha: 0.6);
+  background-color: rgba($color: #ffff00, $alpha: 0.6);
 }
 .bg-yellow-800 {
-  background-color: rgba($color: #FFFF00, $alpha: 0.8);
+  background-color: rgba($color: #ffff00, $alpha: 0.8);
 }
 .bg-white {
   background-color: white;
