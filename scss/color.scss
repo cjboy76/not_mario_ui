@@ -1,5 +1,5 @@
 @import "_function.scss";
-@import "variables.scss";
+@import "_variables.scss";
 
 @each $color, $value in $theme-color {
   @include color_platte($color, $value);

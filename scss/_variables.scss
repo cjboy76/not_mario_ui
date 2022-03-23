@@ -8,8 +8,8 @@ $yellow: #eeedac;
 $skin: #eeceac;
 $black: #000;
 $red: #f00;
-$green:#0f0;
-$blue:#00f;
+$green: #0f0;
+$blue: #00f;
 $purple: purple;
 $yellow: yellow;
 $white: white;
@@ -29,7 +29,10 @@ $theme-color: (
   "blue": $blue,
   "purple": $purple,
   "white": $white,
-
 );
 
 $opacity: (200, 400, 600, 800);
+
+$position: ("relative", "absolute", "fixed", "sticky", "static");
+
+$padding-list: (1, 2, 3, 4, 5);
