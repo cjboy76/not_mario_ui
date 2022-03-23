@@ -6,6 +6,13 @@ $violet: #c1acee;
 $berry: #acbaee;
 $yellow: #eeedac;
 $skin: #eeceac;
+$black: #000;
+$red: #f00;
+$green:#0f0;
+$blue:#00f;
+$purple: purple;
+$yellow: yellow;
+$white: white;
 
 $theme-color: (
   "oval": $oval,
@@ -16,4 +23,13 @@ $theme-color: (
   "berry": $berry,
   "yellow": $yellow,
   "skin": $skin,
+  "black": $black,
+  "red": $red,
+  "green": $green,
+  "blue": $blue,
+  "purple": $purple,
+  "white": $white,
+
 );
+
+$opacity: (200, 400, 600, 800);

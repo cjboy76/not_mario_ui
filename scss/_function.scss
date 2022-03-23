@@ -1,5 +1,22 @@
-@mixin bg_platte($name, $targetColor) {
+@mixin color_platte($name, $targetColor) {
+  .color-#{"" + $name} {
+    color: $targetColor;
+  }
+}
+@mixin bgc_platte($name, $targetColor) {
   .bg-#{"" + $name} {
-    background: $targetColor;
+    background-color: $targetColor;
+  }
+}
+
+@mixin background_opacity($name, $color, $opacity) {
+  .bg-#{"" + $name}-#{$opacity} {
+    background: rgba($color, $opacity * 0.001);
+  }
+}
+
+@mixin color_opacity($name, $color, $opacity) {
+  .color-#{"" + $name}-#{$opacity} {
+    background: rgba($color, $opacity * 0.001);
   }
 }
