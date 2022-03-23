@@ -1,0 +1,5 @@
+@use "sass:map";
+@import "_mixin.scss";
+@import "_variables.scss";
+
+@include generate_classes($property-classes);

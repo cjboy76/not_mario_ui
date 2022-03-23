@@ -1,55 +1,4 @@
-@mixin color_platte($name, $targetColor) {
-  .color-#{"" + $name} {
-    color: $targetColor;
-  }
-}
-@mixin bgc_platte($name, $targetColor) {
-  .bg-#{"" + $name} {
-    background-color: $targetColor;
-  }
-}
-
-@mixin background_opacity($name, $color, $opacity) {
-  .bg-#{"" + $name}-#{$opacity} {
-    background: rgba($color, $opacity * 0.001);
-  }
-}
-
-@mixin color_opacity($name, $color, $opacity) {
-  .color-#{"" + $name}-#{$opacity} {
-    background: rgba($color, $opacity * 0.001);
-  }
-}
-
-@mixin position_utility($position) {
-  .#{$position} {
-    position: $position;
-  }
-}
-
-@mixin padding_utility($padding) {
-  .p-#{$padding} {
-    padding: #{$padding * 0.25 + "em"};
-  }
-}
-
-@mixin margin_utility($margin) {
-  .m-#{$margin} {
-    padding: #{$margin * 0.25 + "em"};
-  }
-}
-
-@mixin padding_direction($dirName, $direction, $padding) {
-  .p#{$dirName}-#{$padding} {
-    padding-#{$direction}: #{$padding + "em"};
-  }
-}
-
-@mixin margin_direction($dirName, $direction, $padding) {
-  .m#{$dirName}-#{$padding} {
-    margin-#{$direction}: #{$padding + "em"};
-  }
-}
+@use "_variables.scss" as variables;
 
 @mixin generate_classes($property-classes) {
   @each $class_key, $class_value in $property-classes {
@@ -57,6 +6,35 @@
     $el_property: map-get($class_value, "property");
     $el_properties: map-get($class_value, "properties");
     $el_value: map-get($class_value, "value");
+    $el_modified: map-get($class_value, "modified");
+
+    @if $class_key == "color" {
+      @each $val, $val_color in $el_value {
+        @each $percent, $percent_val in variables.$opacity {
+          .#{$el_name}-#{$val}-#{$percent * 10} {
+            #{$el_property}: rgba($val_color, $percent_val);
+          }
+        }
+      }
+    }
+
+    @if $class_key == "background-color" {
+      @each $val, $val_color in $el_value {
+        @each $percent, $percent_val in variables.$opacity {
+          .#{$el_name}-#{$val}-#{$percent * 10} {
+            #{$el_property}: rgba($val_color, $percent_val);
+          }
+        }
+      }
+    }
+
+    @if $class_key == "border" {
+      @each $prop in $el_property {
+        .#{nth($el_name,index($el_property,$prop))} {
+          #{$prop}: 1px solid variables.$default;
+        }
+      }
+    }
 
     @if type-of($el_value) == "map" {
       @each $val_key, $val_val in $el_value {
@@ -67,17 +45,19 @@
             }
           }
         } @else if type-of($el_properties) == "list" {
-          @each $prop in $el_properties {
-            .#{$el_name + "-" + $val_key} {
+          .#{$el_name}-#{$val_key} {
+            @each $prop in $el_properties {
               #{$prop}: $val_val;
             }
           }
         }
       }
+    } @else if type-of($el_value) == "list" {
+      @each $val in $el_value {
+        .#{$val} {
+          #{$el_property}: #{$val} !important;
+        }
+      }
     }
-
-    // @else if type-of($el_value) == 'list'{
-
-    // }
   }
 }

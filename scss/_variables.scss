@@ -15,6 +15,7 @@ $blue: #00f;
 $purple: purple;
 $yellow: yellow;
 $white: white;
+$default: #58585e;
 
 $theme-color: (
   "oval": $oval,
@@ -33,39 +34,68 @@ $theme-color: (
   "white": $white,
 );
 
-$opacity: (200, 400, 600, 800);
-
-$position: ("relative", "absolute", "fixed", "sticky", "static");
-
-$spacing: (1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 18, 20);
-
-$directions: (
-  "t": "top",
-  "b": "bottom",
-  "r": "right",
-  "l": "left",
-);
+$opacity: value_map_generator(9, 10, 0%);
 
 $property-classes: (
-  "margin": (
+  "color": (
+    name: (
+      "color",
+    ),
+    property: (
+      "color",
+    ),
+    value: $theme-color,
+  ),
+  "background-color": (
+    name: (
+      "bg",
+    ),
+    property: (
+      "background-color",
+    ),
+    value: $theme-color,
+  ),
+  "border": (
+    name: (
+      "border",
+      "border-top",
+      "border-bottom",
+      "border-right",
+      "border-left",
+    ),
+    property: (
+      "border",
+      "border-top",
+      "border-bottom",
+      "border-right",
+      "border-left",
+    ),
+  ),
+  "border-utility": (
+    name: (
+      "border",
+    ),
+    property: (
+      "border-width",
+    ),
+    value: value_map_generator(10, 1, 0px),
+  ),
+  "border-color": (
+    name: (
+      "border",
+    ),
+    property: (
+      "border-color",
+    ),
+    value: $theme-color,
+  ),
+  "margin/padding": (
     name: (
       "m",
       "mt",
       "mb",
       "mr",
       "ml",
-    ),
-    property: (
-      "margin",
-      "margin-top",
-      "margin-bottom",
-      "margin-right",
-      "margin-left",
-    ),
-    value: value_generator(20, 1, 0em),
-  ),
-  "padding": (
-    name: (
       "p",
       "pt",
       "pb",
@@ -73,13 +103,18 @@ $property-classes: (
       "pl",
     ),
     property: (
+      "margin",
+      "margin-top",
+      "margin-bottom",
+      "margin-right",
+      "margin-left",
       "padding",
       "padding-top",
       "padding-bottom",
       "padding-right",
       "padding-left",
     ),
-    value: value_generator(20, 1, 0em),
+    value: value_map_generator(20, 1, 0em),
   ),
   "margin-x": (
     name: (
@@ -89,54 +124,179 @@ $property-classes: (
       "margin-left",
       "margin-right",
     ),
-    value: value_generator(20, 1, 0em),
+    value:
+      map-merge(
+        value_map_generator(10, 1, 0em),
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "margin-y": (
+    name: (
+      "my",
+    ),
+    properties: (
+      "margin-top",
+      "margin-bottom",
+    ),
+    value:
+      map-merge(
+        value_map_generator(10, 1, 0em),
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "padding-x": (
+    name: (
+      "px",
+    ),
+    properties: (
+      "padding-right",
+      "padding-left",
+    ),
+    value:
+      map-merge(
+        value_map_generator(10, 1, 0em),
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "padding-y": (
+    name: (
+      "py",
+    ),
+    properties: (
+      "padding-top",
+      "padding-bottom",
+    ),
+    value:
+      map-merge(
+        value_map_generator(10, 1, 0em),
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "position": (
+    name: (
+      "position",
+    ),
+    property: (
+      "position",
+    ),
+    value: (
+      "absolute",
+      "relative",
+      "static",
+      "sticky",
+      "fixed",
+    ),
+  ),
+  "display": (
+    name: (
+      "display",
+    ),
+    property: (
+      "display",
+    ),
+    value: (
+      "flex",
+      "grid",
+      "none",
+      "inline-block",
+      "block",
+      "inline",
+    ),
+  ),
+  "width-height-directions": (
+    name: (
+      "w",
+      "h",
+      "t",
+      "b",
+      "r",
+      "l",
+    ),
+    property: (
+      "width",
+      "height",
+      "top",
+      "bottom",
+      "right",
+      "left",
+    ),
+    value:
+      map-merge(
+        value_map_generator(20, 1, 0em),
+        value_map_generator(8, 100, 0px)
+      ),
+  ),
+  "view-height/view-width": (
+    name: (
+      "vh",
+      "vw",
+    ),
+    property: (
+      "height",
+      "width",
+    ),
+    value: value_map_generator(10, 10, 0vh),
+  ),
+  "text-decoration": (
+    name: (
+      "decoration",
+    ),
+    property: (
+      "text-decoration",
+    ),
+    value: (
+      "none": none,
+      "underline": underline,
+      "linethrough": line-through,
+    ),
+  ),
+  "opacity": (
+    name: (
+      "opacity",
+    ),
+    property: (
+      "opacity",
+    ),
+    value:
+      map-merge(
+        value_map_generator(9, 10, 0%),
+        (
+          0: 0,
+        )
+      ),
+  ),
+  "float": (
+    name: (
+      "float",
+    ),
+    property: (
+      "float",
+    ),
+    value: (
+      "r": right,
+      "l": left,
+      "none": none,
+    ),
+  ),
+  "text-align": (
+    name: (
+      "text",
+    ),
+    property: (
+      "text-align",
+    ),
+    value: (
+      "start": start,
+      "end": end,
+      "center": center,
+    ),
   ),
 );
-
-// "margin-y": (
-//   name: (
-//     "my",
-//   ),
-//   properties: (
-//     "margin-top",
-//     "margin-bottom",
-//   ),
-//   value: value_generator(20, 1),
-// ),
-// "padding-x": (
-//   name: (
-//     "px",
-//   ),
-//   properties: (
-//     "padding-right",
-//     "padding-left",
-//   ),
-//   value: value_generator(20, 1),
-// ),
-// "padding-y": (
-//   name: (
-//     "py",
-//   ),
-//   properties: (
-//     "padding-top",
-//     "padding-bottom",
-//   ),
-//   value: value_generator(20, 1),
-// ),
-// "display": (
-//   name: (
-//     "d",
-//   ),
-//   property: (
-//     "display",
-//   ),
-//   value:
-//   (
-//     "fixed",
-//     "absolute",
-//     "relative",
-//     "flex",
-//     "grid",
-//     "none",
-//   ),
-// ),

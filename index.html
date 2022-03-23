@@ -6,24 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mario UI</title>
     <style>
-      .playground {
-        width: 800px;
-        height: 600px;
-        border: 1px solid black;
-      }
       .test {
         width: 100px;
         height: 100px;
-        border: 1px solid black;
       }
     </style>
-    <link rel="stylesheet" href="dist/css/flex.css" />
+    <link rel="stylesheet" href="dist/css/utility.css" />
   </head>
   <body>
-    <div class="playground flex-center">
-      <div class="test bg-red-400">1</div>
-      <div class="test bg-red-400">2</div>
-      <div class="test bg-red-400">3</div>
+    <div class="border w-800 h-600">
+      <div class="border w-100 h-100">
+        <p class="decoration-underline">123456</p>
+      </div>
+      <div class="test bg-red-400 border-bottom border-5">2</div>
+      <div class="w-100 h-100 border border-5 border-green absolute">3</div>
     </div>
   </body>
 </html>
