@@ -1,3 +1,5 @@
+@import "_function.scss";
+
 $oval: #c4e0a6;
 $iceblue: #aceaee;
 $pink: #eebeac;
@@ -35,4 +37,106 @@ $opacity: (200, 400, 600, 800);
 
 $position: ("relative", "absolute", "fixed", "sticky", "static");
 
-$padding-list: (1, 2, 3, 4, 5);
+$spacing: (1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 18, 20);
+
+$directions: (
+  "t": "top",
+  "b": "bottom",
+  "r": "right",
+  "l": "left",
+);
+
+$property-classes: (
+  "margin": (
+    name: (
+      "m",
+      "mt",
+      "mb",
+      "mr",
+      "ml",
+    ),
+    property: (
+      "margin",
+      "margin-top",
+      "margin-bottom",
+      "margin-right",
+      "margin-left",
+    ),
+    value: value_generator(20, 1, 0em),
+  ),
+  "padding": (
+    name: (
+      "p",
+      "pt",
+      "pb",
+      "pr",
+      "pl",
+    ),
+    property: (
+      "padding",
+      "padding-top",
+      "padding-bottom",
+      "padding-right",
+      "padding-left",
+    ),
+    value: value_generator(20, 1, 0em),
+  ),
+  "margin-x": (
+    name: (
+      "mx",
+    ),
+    properties: (
+      "margin-left",
+      "margin-right",
+    ),
+    value: value_generator(20, 1, 0em),
+  ),
+);
+
+// "margin-y": (
+//   name: (
+//     "my",
+//   ),
+//   properties: (
+//     "margin-top",
+//     "margin-bottom",
+//   ),
+//   value: value_generator(20, 1),
+// ),
+// "padding-x": (
+//   name: (
+//     "px",
+//   ),
+//   properties: (
+//     "padding-right",
+//     "padding-left",
+//   ),
+//   value: value_generator(20, 1),
+// ),
+// "padding-y": (
+//   name: (
+//     "py",
+//   ),
+//   properties: (
+//     "padding-top",
+//     "padding-bottom",
+//   ),
+//   value: value_generator(20, 1),
+// ),
+// "display": (
+//   name: (
+//     "d",
+//   ),
+//   property: (
+//     "display",
+//   ),
+//   value:
+//   (
+//     "fixed",
+//     "absolute",
+//     "relative",
+//     "flex",
+//     "grid",
+//     "none",
+//   ),
+// ),

@@ -1,28 +1,30 @@
-@mixin color_platte($name, $targetColor) {
-  .color-#{"" + $name} {
-    color: $targetColor;
-  }
-}
-@mixin bgc_platte($name, $targetColor) {
-  .bg-#{"" + $name} {
-    background-color: $targetColor;
-  }
+@function empty_map() {
+  @return map-remove(
+    (
+      x: x,
+    ),
+    x
+  );
 }
 
-@mixin background_opacity($name, $color, $opacity) {
-  .bg-#{"" + $name}-#{$opacity} {
-    background: rgba($color, $opacity * 0.001);
+@function value_generator($length, $step: 1, $unit: false, $modify-key: true) {
+  $result: empty_map();
+  @for $i from 1 to $length + 1 {
+    $key: $i;
+    $value: $i * $step;
+    @if $modify-key {
+      $key: $key * $step;
+    }
+    @if $unit {
+      $value: $value + $unit;
+    }
+    $result: map-merge(
+      $result,
+      (
+        $key: $value,
+      )
+    );
   }
+  @return $result;
 }
 
-@mixin color_opacity($name, $color, $opacity) {
-  .color-#{"" + $name}-#{$opacity} {
-    background: rgba($color, $opacity * 0.001);
-  }
-}
-
-@mixin position_utility($position) {
-  .#{$position} {
-    position: $position;
-  }
-}
