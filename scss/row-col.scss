@@ -1,0 +1,11 @@
+@import "_mixin.scss";
+@import "_variables.scss";
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  @include grid_col_generator($grid-col-value);
+}
+.col {
+  flex: 1 0 0%;
+}

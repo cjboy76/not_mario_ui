@@ -7,7 +7,12 @@
   );
 }
 
-@function value_map_generator($length, $step: 1, $unit: false, $modify-key: true) {
+@function value_map_generator(
+  $length,
+  $step: 1,
+  $unit: false,
+  $modify-key: true
+) {
   $result: empty_map();
   @for $i from 1 to $length + 1 {
     $key: $i;

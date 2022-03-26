@@ -61,3 +61,18 @@
     }
   }
 }
+
+@mixin grid_col_generator($grid-col-value) {
+  @each $val, $val_val in $grid-col-value {
+    .col-#{$val} {
+      flex: 0 0 auto;
+      width: #{$val_val / 12 * 100 + "%"};
+    }
+  }
+}
+
+@mixin breakpoint_container_generator($breakpoint) {
+  @media (min-width:#{$breakpoint}) {
+    max-width: $breakpoint;
+  }
+}

@@ -36,6 +36,13 @@ $theme-color: (
 
 $opacity: value_map_generator(9, 10, 0%);
 
+$breakpoints: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+);
+
 $property-classes: (
   "color": (
     name: (
@@ -54,6 +61,32 @@ $property-classes: (
       "background-color",
     ),
     value: $theme-color,
+  ),
+  "flex-utility-justify": (
+    name: (
+      "justify",
+    ),
+    property: (
+      "justify-content",
+    ),
+    value: (
+      "center": center,
+      "start": start,
+      "end": end,
+    ),
+  ),
+  "flex-utility-align": (
+    name: (
+      "align",
+    ),
+    property: (
+      "align-items",
+    ),
+    value: (
+      "center": center,
+      "start": start,
+      "end": end,
+    ),
   ),
   "border": (
     name: (
@@ -300,3 +333,5 @@ $property-classes: (
     ),
   ),
 );
+
+$grid-col-value: value_map_generator(12, 1);
