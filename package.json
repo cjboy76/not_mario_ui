@@ -2,14 +2,28 @@
   "name": "mario_ui",
   "version": "0.0.1",
   "description": "My UI Library",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "css:dev": "sass --style=expanded --no-source-map --watch scss/:dist/css/"
+    "css:dev": "sass --style=expanded --no-source-map --watch scss/:dist/css/",
+    "css:compile": "sass --style=expanded --no-error-css --no-source-map scss/:dist/css/",
+    "css:prefix": "postcss --config postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+    "css:build": "npm run css:compile && npm run css:prefix && cleancss -O1 --format breakWith=lf --output dist/css/ --batch --batch-suffix \".min\" \"dist/css/*.css\"",
+    "dev": "rollup --config rollup.config.js -w"
   },
   "author": "cjboy76",
   "license": "MIT",
   "devDependencies": {
     "sass": "^1.49.9"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.4",
+    "clean-css-cli": "^5.5.2",
+    "postcss": "^8.4.12",
+    "postcss-cli": "^9.1.0",
+    "rollup": "^2.70.1",
+    "rollup-plugin-import-css": "^3.0.3",
+    "rollup-plugin-scss": "^3.0.0"
   }
 }

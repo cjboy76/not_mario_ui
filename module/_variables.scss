@@ -36,6 +36,11 @@ $theme-color: (
 
 $opacity: value_map_generator(9, 10, 0%);
 
+$--default-grid-column: 12;
+$--default-grid-gap: 0;
+$--default-row-gap: 0;
+$--default-column-gap: 0;
+
 $breakpoints: (
   sm: 540px,
   md: 720px,
@@ -237,7 +242,6 @@ $property-classes: (
     ),
     value: (
       "flex",
-      "grid",
       "none",
       "inline-block",
       "block",

@@ -62,11 +62,11 @@
   }
 }
 
-@mixin grid_col_generator($grid-col-value) {
+@mixin row_col_generator($grid-col-value) {
   @each $val, $val_val in $grid-col-value {
     .col-#{$val} {
       flex: 0 0 auto;
-      width: #{$val_val / 12 * 100 + "%"};
+      width: #{calc($val_val / 12) * 100 + "%"};
     }
   }
 }

@@ -1,0 +1,8 @@
+@import "../module/_variables.scss";
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--def-grid-col), 1fr);
+  grid-column-gap: var(--def-col-gap);
+  grid-row-gap: var(--def-row-gap);
+}
