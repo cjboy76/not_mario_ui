@@ -1,1 +1,1 @@
-import "../dist/css/mario.min.css";
+export default {};

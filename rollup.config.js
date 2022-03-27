@@ -1,10 +1,9 @@
-import scss from 'rollup-plugin-scss'
+import css from "rollup-plugin-import-css";
 
 export default {
   input: "src/index.js",
   output: {
-    file: "dist/index.js",
-    format: "esm",
+    dir: "./dist",
   },
-  plugins: [scss()],
+  plugins: [css()],
 };

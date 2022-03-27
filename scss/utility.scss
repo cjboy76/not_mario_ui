@@ -1,5 +1,5 @@
-@import "../module/_mixin.scss";
-@import "../module/_variables.scss";
+@import "./module/_mixin.scss";
+@import "./module/_variables.scss";
 
 @include generate_classes($property-classes);
 
