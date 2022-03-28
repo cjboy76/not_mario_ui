@@ -4,7 +4,7 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  @include row_col_generator($grid-col-value);
+  @include row_col_generator($row-col-value);
 }
 .col {
   flex: 1 0 0%;

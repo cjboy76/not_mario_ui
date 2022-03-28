@@ -271,16 +271,23 @@ $property-classes: (
         value_map_generator(8, 100, 0px)
       ),
   ),
-  "view-height/view-width": (
+  "view-height": (
     name: (
       "vh",
-      "vw",
     ),
     property: (
       "height",
-      "width",
     ),
     value: value_map_generator(10, 10, 0vh),
+  ),
+  "view-width": (
+    name: (
+      "vw",
+    ),
+    property: (
+      "width",
+    ),
+    value: value_map_generator(10, 10, 0vw),
   ),
   "text-decoration": (
     name: (
@@ -338,4 +345,4 @@ $property-classes: (
   ),
 );
 
-$grid-col-value: value_map_generator(12, 1);
+$row-col-value: value_map_generator(12, 1);
