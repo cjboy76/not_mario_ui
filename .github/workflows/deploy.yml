@@ -1,9 +1,9 @@
 name: Deploy
 
 on:
-  pull_request:
+  push:
     branches:
-      - master
+      - main
 
 jobs:
   npm-publish:
@@ -14,8 +14,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/   
-      - run: npm install && npm run css:build
-      - name: publish
+      - name: Install npm
+        run: npm install
+        run: npm run css:build
+      - name: publish to npm
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NOT_MARIO_UI_SECRET}}
