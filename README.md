@@ -6,7 +6,7 @@ A personal library for creating css style.
 
 #### NPM
 
-- Install with [npm](https://www.npmjs.com/): 
+Install with [npm](https://www.npmjs.com/): 
 `npm install not_mario_ui`
 ```js
 import '@not_mario_ui/dist/css/mario.min.css'; 
