@@ -1,9 +1,11 @@
 name: Deploy
 
 on:
-  on_merge:
+  pull_request:
     branches:
       - main
+    types:
+      - closed
 
 jobs:
   npm-publish:
