@@ -2,8 +2,6 @@
   "name": "not_mario_ui",
   "version": "1.0.1",
   "description": "For personal usage.",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "css:dev": "sass --style=expanded --no-source-map --watch scss/:dist/css/",
@@ -21,9 +19,7 @@
     "autoprefixer": "^10.4.4",
     "clean-css-cli": "^5.5.2",
     "postcss": "^8.4.12",
-    "postcss-cli": "^9.1.0",
-    "rollup": "^2.70.1",
-    "rollup-plugin-import-css": "^3.0.3"
+    "postcss-cli": "^9.1.0"
   },
   "files": [
     "dist"
