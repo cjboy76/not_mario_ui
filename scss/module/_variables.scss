@@ -1,0 +1,348 @@
+@import "_function.scss";
+
+$oval: #c4e0a6;
+$iceblue: #aceaee;
+$pink: #eebeac;
+$carpet: #eeacac;
+$violet: #c1acee;
+$berry: #acbaee;
+$yellow: #eeedac;
+$skin: #eeceac;
+$black: #000;
+$red: #f00;
+$green: #0f0;
+$blue: #00f;
+$purple: purple;
+$yellow: yellow;
+$white: white;
+$default: #58585e;
+
+$theme-color: (
+  "oval": $oval,
+  "iceblue": $iceblue,
+  "pink": $pink,
+  "carpet": $carpet,
+  "violet": $violet,
+  "berry": $berry,
+  "yellow": $yellow,
+  "skin": $skin,
+  "black": $black,
+  "red": $red,
+  "green": $green,
+  "blue": $blue,
+  "purple": $purple,
+  "white": $white,
+);
+
+$opacity: value_map_generator(9, 10, 0%);
+
+$--default-grid-column: 12;
+$--default-grid-gap: 0;
+$--default-row-gap: 0;
+$--default-column-gap: 0;
+
+$breakpoints: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+);
+
+$property-classes: (
+  "color": (
+    name: (
+      "color",
+    ),
+    property: (
+      "color",
+    ),
+    value: $theme-color,
+  ),
+  "background-color": (
+    name: (
+      "bg",
+    ),
+    property: (
+      "background-color",
+    ),
+    value: $theme-color,
+  ),
+  "flex-utility-justify": (
+    name: (
+      "justify",
+    ),
+    property: (
+      "justify-content",
+    ),
+    value: (
+      "center": center,
+      "start": start,
+      "end": end,
+    ),
+  ),
+  "flex-utility-align": (
+    name: (
+      "align",
+    ),
+    property: (
+      "align-items",
+    ),
+    value: (
+      "center": center,
+      "start": start,
+      "end": end,
+    ),
+  ),
+  "border": (
+    name: (
+      "border",
+      "border-top",
+      "border-bottom",
+      "border-right",
+      "border-left",
+    ),
+    property: (
+      "border",
+      "border-top",
+      "border-bottom",
+      "border-right",
+      "border-left",
+    ),
+  ),
+  "border-utility": (
+    name: (
+      "border",
+    ),
+    property: (
+      "border-width",
+    ),
+    value: value_map_generator(10, 1, 0px),
+  ),
+  "border-color": (
+    name: (
+      "border",
+    ),
+    property: (
+      "border-color",
+    ),
+    value: $theme-color,
+  ),
+  "margin/padding": (
+    name: (
+      "m",
+      "mt",
+      "mb",
+      "mr",
+      "ml",
+      "p",
+      "pt",
+      "pb",
+      "pr",
+      "pl",
+    ),
+    property: (
+      "margin",
+      "margin-top",
+      "margin-bottom",
+      "margin-right",
+      "margin-left",
+      "padding",
+      "padding-top",
+      "padding-bottom",
+      "padding-right",
+      "padding-left",
+    ),
+    value: value_map_generator(20, 1, 0em),
+  ),
+  "margin-x": (
+    name: (
+      "mx",
+    ),
+    properties: (
+      "margin-left",
+      "margin-right",
+    ),
+    value:
+      map-merge(
+        value_map_generator(10, 1, 0em),
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "margin-y": (
+    name: (
+      "my",
+    ),
+    properties: (
+      "margin-top",
+      "margin-bottom",
+    ),
+    value:
+      map-merge(
+        value_map_generator(10, 1, 0em),
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "padding-x": (
+    name: (
+      "px",
+    ),
+    properties: (
+      "padding-right",
+      "padding-left",
+    ),
+    value:
+      map-merge(
+        value_map_generator(10, 1, 0em),
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "padding-y": (
+    name: (
+      "py",
+    ),
+    properties: (
+      "padding-top",
+      "padding-bottom",
+    ),
+    value:
+      map-merge(
+        value_map_generator(10, 1, 0em),
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  "position": (
+    name: (
+      "position",
+    ),
+    property: (
+      "position",
+    ),
+    value: (
+      "absolute",
+      "relative",
+      "static",
+      "sticky",
+      "fixed",
+    ),
+  ),
+  "display": (
+    name: (
+      "display",
+    ),
+    property: (
+      "display",
+    ),
+    value: (
+      "flex",
+      "none",
+      "inline-block",
+      "block",
+      "inline",
+    ),
+  ),
+  "width-height-directions": (
+    name: (
+      "w",
+      "h",
+      "t",
+      "b",
+      "r",
+      "l",
+    ),
+    property: (
+      "width",
+      "height",
+      "top",
+      "bottom",
+      "right",
+      "left",
+    ),
+    value:
+      map-merge(
+        value_map_generator(20, 1, 0em),
+        value_map_generator(8, 100, 0px)
+      ),
+  ),
+  "view-height": (
+    name: (
+      "vh",
+    ),
+    property: (
+      "height",
+    ),
+    value: value_map_generator(10, 10, 0vh),
+  ),
+  "view-width": (
+    name: (
+      "vw",
+    ),
+    property: (
+      "width",
+    ),
+    value: value_map_generator(10, 10, 0vw),
+  ),
+  "text-decoration": (
+    name: (
+      "decoration",
+    ),
+    property: (
+      "text-decoration",
+    ),
+    value: (
+      "none": none,
+      "underline": underline,
+      "linethrough": line-through,
+    ),
+  ),
+  "opacity": (
+    name: (
+      "opacity",
+    ),
+    property: (
+      "opacity",
+    ),
+    value:
+      map-merge(
+        value_map_generator(9, 10, 0%),
+        (
+          0: 0,
+        )
+      ),
+  ),
+  "float": (
+    name: (
+      "float",
+    ),
+    property: (
+      "float",
+    ),
+    value: (
+      "r": right,
+      "l": left,
+      "none": none,
+    ),
+  ),
+  "text-align": (
+    name: (
+      "text",
+    ),
+    property: (
+      "text-align",
+    ),
+    value: (
+      "start": start,
+      "end": end,
+      "center": center,
+    ),
+  ),
+);
+
+$row-col-value: value_map_generator(12, 1);

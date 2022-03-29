@@ -1,6 +1,26 @@
-.relative {
-  position: relative;
+@import "./module/_mixin.scss";
+@import "./module/_variables.scss";
+
+@include generate_classes($property-classes);
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.absolute {
-  position: absolute;
+.flex-col {
+  flex-direction: column;
+}
+
+.container,
+.container-fluid {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  @each $key, $val in $breakpoints {
+    @include breakpoint_container_generator($val);
+  }
 }

@@ -1,0 +1,84 @@
+@use "_variables.scss" as variables;
+
+@mixin generate_classes($property-classes) {
+  @each $class_key, $class_value in $property-classes {
+    $el_name: map-get($class_value, "name");
+    $el_property: map-get($class_value, "property");
+    $el_properties: map-get($class_value, "properties");
+    $el_value: map-get($class_value, "value");
+    $el_modified: map-get($class_value, "modified");
+
+    @if $class_key == "color" {
+      @each $val, $val_color in $el_value {
+        @each $percent, $percent_val in variables.$opacity {
+          .#{$el_name}-#{$val}-#{$percent * 10} {
+            #{$el_property}: rgba($val_color, $percent_val);
+          }
+        }
+      }
+    }
+
+    @if $class_key == "background-color" {
+      @each $val, $val_color in $el_value {
+        @each $percent, $percent_val in variables.$opacity {
+          .#{$el_name}-#{$val}-#{$percent * 10} {
+            #{$el_property}: rgba($val_color, $percent_val);
+          }
+        }
+      }
+    }
+
+    @if $class_key == "border" {
+      @each $prop in $el_property {
+        .#{nth($el_name,index($el_property,$prop))} {
+          #{$prop}: 1px solid variables.$default;
+        }
+      }
+    }
+
+    @if type-of($el_value) == "map" {
+      @each $val_key, $val_val in $el_value {
+        @if type-of($el_property) == "list" {
+          @each $prop in $el_property {
+            .#{nth($el_name, index($el_property,$prop)) + "-" + $val_key} {
+              #{$prop}: $val_val;
+            }
+          }
+        } @else if type-of($el_properties) == "list" {
+          .#{$el_name}-#{$val_key} {
+            @each $prop in $el_properties {
+              #{$prop}: $val_val;
+            }
+          }
+        }
+      }
+    } @else if type-of($el_value) == "list" {
+      @each $val in $el_value {
+        .#{$val} {
+          #{$el_property}: #{$val} !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin row_col_generator($row-col-value) {
+  @each $val, $val_val in $row-col-value {
+    .col-#{$val} {
+      flex: 0 0 auto;
+      width: #{calc($val_val / 12) * 100 + "%"};
+    }
+  }
+}
+
+@mixin breakpoint_container_generator($breakpoint) {
+  @media (min-width:#{$breakpoint}) {
+    max-width: $breakpoint;
+  }
+}
+
+@mixin col_generator($columns) {
+  .g-col-#{$columns} {
+    grid-column: auto / span $columns;
+  }
+}

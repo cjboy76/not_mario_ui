@@ -1,0 +1,35 @@
+@function empty_map() {
+  @return map-remove(
+    (
+      x: x,
+    ),
+    x
+  );
+}
+
+@function value_map_generator(
+  $length,
+  $step: 1,
+  $unit: false,
+  $modify-key: true
+) {
+  $result: empty_map();
+  @for $i from 1 to $length + 1 {
+    $key: $i;
+    $value: $i * $step;
+    @if $modify-key {
+      $key: $key * $step;
+    }
+    @if $unit {
+      $value: $value + $unit;
+    }
+    $result: map-merge(
+      $result,
+      (
+        $key: $value,
+      )
+    );
+  }
+  @return $result;
+}
+
