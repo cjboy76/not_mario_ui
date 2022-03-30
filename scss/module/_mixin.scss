@@ -1,4 +1,4 @@
-@use "_variables.scss" as variables;
+@import "_function.scss";
 
 @mixin generate_classes($property-classes) {
   @each $class_key, $class_value in $property-classes {
@@ -10,7 +10,7 @@
 
     @if $class_key == "color" {
       @each $val, $val_color in $el_value {
-        @each $percent, $percent_val in variables.$opacity {
+        @each $percent, $percent_val in value_map_generator(9, 10, 0%) {
           .#{$el_name}-#{$val}-#{$percent * 10} {
             #{$el_property}: rgba($val_color, $percent_val);
           }
@@ -20,7 +20,7 @@
 
     @if $class_key == "background-color" {
       @each $val, $val_color in $el_value {
-        @each $percent, $percent_val in variables.$opacity {
+        @each $percent, $percent_val in value_map_generator(9, 10, 0%) {
           .#{$el_name}-#{$val}-#{$percent * 10} {
             #{$el_property}: rgba($val_color, $percent_val);
           }
@@ -31,7 +31,7 @@
     @if $class_key == "border" {
       @each $prop in $el_property {
         .#{nth($el_name,index($el_property,$prop))} {
-          #{$prop}: 1px solid variables.$default;
+          #{$prop}: 1px solid #58585e;
         }
       }
     }
@@ -77,8 +77,25 @@
   }
 }
 
-@mixin col_generator($columns) {
-  .g-col-#{$columns} {
-    grid-column: auto / span $columns;
+@mixin grid_col_generator($columns-map) {
+  @each $key, $val in $columns-map {
+    .g-col-#{$key} {
+      grid-column: auto / span $val;
+    }
+  }
+}
+@mixin grid_row_generator($columns) {
+  .g-row-#{$columns} {
+    grid-row: auto / span $columns;
+  }
+}
+@mixin grid_row_start_generator($columns) {
+  .row-start-#{$columns} {
+    grid-row-start: $columns;
+  }
+}
+@mixin grid_row_end_generator($columns) {
+  .row-end-#{$columns} {
+    grid-row-end: $columns;
   }
 }

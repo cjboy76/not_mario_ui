@@ -45,13 +45,6 @@ $border-raduis-map: (
   "full": 9999px,
 );
 
-$opacity: value_map_generator(9, 10, 0%);
-
-$--default-grid-column: 12;
-$--default-grid-gap: 0;
-$--default-row-gap: 0;
-$--default-column-gap: 0;
-
 $breakpoints: (
   sm: 540px,
   md: 720px,
@@ -532,3 +525,28 @@ $property-classes: (
 );
 
 $row-col-value: value_map_generator(12, 1);
+
+$grid-utilities: (
+  "row-start/row-end": (
+    name: (
+      "row-start",
+      "row-end",
+    ),
+    property: (
+      "grid-row-start",
+      "grid-row-end",
+    ),
+    value: value_map_generator(7, 1),
+  ),
+  "col-start/col-end": (
+    name: (
+      "col-start",
+      "col-end",
+    ),
+    property: (
+      "grid-column-start",
+      "grid-column-end",
+    ),
+    value: value_map_generator(13, 1),
+  ),
+);
