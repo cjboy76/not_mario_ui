@@ -150,6 +150,59 @@ $property-classes: (
       "end": flex-end,
     ),
   ),
+  "flex-directions": (
+    name: (
+      "flex",
+    ),
+    property: (
+      "flex-direction",
+    ),
+    value: (
+      "row": row,
+      "row-reverse": row-reverse,
+      "col": column,
+      "col-reverse": column-reverse,
+    ),
+  ),
+  "flex-wrap": (
+    name: (
+      "flex",
+    ),
+    property: (
+      "flex-wrap",
+    ),
+    value: (
+      "wrap": wrap,
+      "wrap-reverse": wrap-reverse,
+      "nowrap": nowrap,
+    ),
+  ),
+  "flex-order": (
+    name: (
+      "order",
+    ),
+    property: (
+      "order",
+    ),
+    value:
+      map-merge(
+        value_map_generator(12, 1),
+        (
+          "first": -9999,
+          "last": 9999,
+          "none": 0,
+        )
+      ),
+  ),
+  "grid-gap": (
+    name: (
+      "gap",
+    ),
+    property: (
+      "gap",
+    ),
+    value: not_fibonacci_generator(96, 1, 0px),
+  ),
   "border": (
     name: (
       "border",
@@ -400,7 +453,7 @@ $property-classes: (
     ),
     value:
       map-merge(
-        value_map_generator(20, 1, 0em),
+        not_fibonacci_generator(96, 1, 0px),
         value_map_generator(8, 100, 0px)
       ),
   ),
