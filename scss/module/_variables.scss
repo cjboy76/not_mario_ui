@@ -34,6 +34,17 @@ $theme-color: (
   "white": $white,
 );
 
+$border-raduis-map: (
+  "none": 0px,
+  "sm": 0.125rem,
+  "md": 0.375rem,
+  "lg": 0.5rem,
+  "xl": 0.75rem,
+  "2xl": 1rem,
+  "3xl": 1.5rem,
+  "full": 9999px,
+);
+
 $opacity: value_map_generator(9, 10, 0%);
 
 $--default-grid-column: 12;
@@ -66,6 +77,20 @@ $property-classes: (
       "background-color",
     ),
     value: $theme-color,
+  ),
+  "clear": (
+    name: (
+      "clear",
+    ),
+    property: (
+      "clear",
+    ),
+    value: (
+      "right": right,
+      "left": left,
+      "none": none,
+      "both": both,
+    ),
   ),
   "flex-utility-justify": (
     name: (
@@ -126,6 +151,82 @@ $property-classes: (
       "border-color",
     ),
     value: $theme-color,
+  ),
+  "border-raduis-corner": (
+    name: (
+      "rounded",
+      "rounded-tl",
+      "rounded-tr",
+      "rounded-bl",
+      "rounded-br",
+    ),
+    property: (
+      "border-radius",
+      "border-top-left-radius",
+      "border-top-right-radius",
+      "border-bottom-left-radius",
+      "border-bottom-right-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "border-raduis-top": (
+    name: (
+      "rounded-t",
+    ),
+    properties: (
+      "border-top-left-radius",
+      "border-top-right-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "border-raduis-bottom": (
+    name: (
+      "rounded-b",
+    ),
+    properties: (
+      "border-bottom-left-radius",
+      "border-bottom-right-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "border-raduis-right": (
+    name: (
+      "rounded-r",
+    ),
+    properties: (
+      "border-bottom-right-radius",
+      "border-top-right-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "border-raduis-left": (
+    name: (
+      "rounded-l",
+    ),
+    properties: (
+      "border-top-left-radius",
+      "border-bottom-left-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "overflow": (
+    name: (
+      "overflow",
+      "overflow-x",
+      "overflow-y",
+    ),
+    property: (
+      "overflow",
+      "overflow-x",
+      "overflow-y",
+    ),
+    value: (
+      "auto": auto,
+      "hidden": hidden,
+      "scroll": scroll,
+      "visible": visible,
+      "clip": clip,
+    ),
   ),
   "margin/padding": (
     name: (
@@ -325,8 +426,8 @@ $property-classes: (
       "float",
     ),
     value: (
-      "r": right,
-      "l": left,
+      "right": right,
+      "left": left,
       "none": none,
     ),
   ),
