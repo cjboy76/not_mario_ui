@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @function empty_map() {
   @return map-remove(
     (
@@ -33,3 +35,25 @@
   @return $result;
 }
 
+@function not_fibonacci_generator($length, $step: 1, $unit: false) {
+  $result: empty_map();
+  $increment: 1;
+  $value: 1;
+  @while $step < $length {
+    @if $value == 20 {
+      $increment: 4;
+    }
+    @if $value == 40 {
+      $increment: 16;
+    }
+    $result: map-merge(
+      $result,
+      (
+        $step: $value + $unit,
+      )
+    );
+    $value: $value + $increment;
+    $step: $value;
+  }
+  @return $result;
+}

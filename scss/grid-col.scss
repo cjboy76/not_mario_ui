@@ -1,13 +1,14 @@
 @import "./module/_variables.scss";
 @import "./module/mixin.scss";
+@import "./module/function.scss";
 
 .grid {
   display: grid;
   grid-template-columns: repeat(var(--def-grid-col), 1fr);
+  grid-template-rows: repeat(var(--def-grid-row), 1fr);
   grid-column-gap: var(--def-col-gap);
   grid-row-gap: var(--def-row-gap);
 }
 
-@each $key,$val in $row-col-value {
-  @include col_generator($key);
-}
+@include generate_classes($grid-utilities);
+@include grid_col_generator(value_map_generator(12, 1));

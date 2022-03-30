@@ -34,12 +34,16 @@ $theme-color: (
   "white": $white,
 );
 
-$opacity: value_map_generator(9, 10, 0%);
-
-$--default-grid-column: 12;
-$--default-grid-gap: 0;
-$--default-row-gap: 0;
-$--default-column-gap: 0;
+$border-raduis-map: (
+  "none": 0px,
+  "sm": 0.125rem,
+  "md": 0.375rem,
+  "lg": 0.5rem,
+  "xl": 0.75rem,
+  "2xl": 1rem,
+  "3xl": 1.5rem,
+  "full": 9999px,
+);
 
 $breakpoints: (
   sm: 540px,
@@ -67,7 +71,21 @@ $property-classes: (
     ),
     value: $theme-color,
   ),
-  "flex-utility-justify": (
+  "clear": (
+    name: (
+      "clear",
+    ),
+    property: (
+      "clear",
+    ),
+    value: (
+      "right": right,
+      "left": left,
+      "none": none,
+      "both": both,
+    ),
+  ),
+  "flex-utility-justify-content": (
     name: (
       "justify",
     ),
@@ -76,22 +94,107 @@ $property-classes: (
     ),
     value: (
       "center": center,
-      "start": start,
-      "end": end,
+      "start": flex-start,
+      "end": flex-end,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly,
     ),
   ),
-  "flex-utility-align": (
+  "flex-utility-justify-items": (
     name: (
-      "align",
+      "justify-items",
     ),
     property: (
-      "align-items",
+      "justify-items",
     ),
     value: (
       "center": center,
       "start": start,
       "end": end,
     ),
+  ),
+  "flex-utility-align-contents": (
+    name: (
+      "align",
+    ),
+    property: (
+      "align-content",
+    ),
+    value: (
+      "center": center,
+      "start": flex-start,
+      "end": flex-end,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly,
+    ),
+  ),
+  "flex-utility-align-items": (
+    name: (
+      "align-items",
+    ),
+    property: (
+      "align-items",
+    ),
+    value: (
+      "center": center,
+      "start": flex-start,
+      "end": flex-end,
+    ),
+  ),
+  "flex-directions": (
+    name: (
+      "flex",
+    ),
+    property: (
+      "flex-direction",
+    ),
+    value: (
+      "row": row,
+      "row-reverse": row-reverse,
+      "col": column,
+      "col-reverse": column-reverse,
+    ),
+  ),
+  "flex-wrap": (
+    name: (
+      "flex",
+    ),
+    property: (
+      "flex-wrap",
+    ),
+    value: (
+      "wrap": wrap,
+      "wrap-reverse": wrap-reverse,
+      "nowrap": nowrap,
+    ),
+  ),
+  "flex-order": (
+    name: (
+      "order",
+    ),
+    property: (
+      "order",
+    ),
+    value:
+      map-merge(
+        value_map_generator(12, 1),
+        (
+          "first": -9999,
+          "last": 9999,
+          "none": 0,
+        )
+      ),
+  ),
+  "grid-gap": (
+    name: (
+      "gap",
+    ),
+    property: (
+      "gap",
+    ),
+    value: not_fibonacci_generator(96, 1, 0px),
   ),
   "border": (
     name: (
@@ -126,6 +229,82 @@ $property-classes: (
       "border-color",
     ),
     value: $theme-color,
+  ),
+  "border-raduis-corner": (
+    name: (
+      "rounded",
+      "rounded-tl",
+      "rounded-tr",
+      "rounded-bl",
+      "rounded-br",
+    ),
+    property: (
+      "border-radius",
+      "border-top-left-radius",
+      "border-top-right-radius",
+      "border-bottom-left-radius",
+      "border-bottom-right-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "border-raduis-top": (
+    name: (
+      "rounded-t",
+    ),
+    properties: (
+      "border-top-left-radius",
+      "border-top-right-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "border-raduis-bottom": (
+    name: (
+      "rounded-b",
+    ),
+    properties: (
+      "border-bottom-left-radius",
+      "border-bottom-right-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "border-raduis-right": (
+    name: (
+      "rounded-r",
+    ),
+    properties: (
+      "border-bottom-right-radius",
+      "border-top-right-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "border-raduis-left": (
+    name: (
+      "rounded-l",
+    ),
+    properties: (
+      "border-top-left-radius",
+      "border-bottom-left-radius",
+    ),
+    value: $border-raduis-map,
+  ),
+  "overflow": (
+    name: (
+      "overflow",
+      "overflow-x",
+      "overflow-y",
+    ),
+    property: (
+      "overflow",
+      "overflow-x",
+      "overflow-y",
+    ),
+    value: (
+      "auto": auto,
+      "hidden": hidden,
+      "scroll": scroll,
+      "visible": visible,
+      "clip": clip,
+    ),
   ),
   "margin/padding": (
     name: (
@@ -267,7 +446,7 @@ $property-classes: (
     ),
     value:
       map-merge(
-        value_map_generator(20, 1, 0em),
+        not_fibonacci_generator(96, 1, 0px),
         value_map_generator(8, 100, 0px)
       ),
   ),
@@ -325,8 +504,8 @@ $property-classes: (
       "float",
     ),
     value: (
-      "r": right,
-      "l": left,
+      "right": right,
+      "left": left,
       "none": none,
     ),
   ),
@@ -346,3 +525,28 @@ $property-classes: (
 );
 
 $row-col-value: value_map_generator(12, 1);
+
+$grid-utilities: (
+  "row-start/row-end": (
+    name: (
+      "row-start",
+      "row-end",
+    ),
+    property: (
+      "grid-row-start",
+      "grid-row-end",
+    ),
+    value: value_map_generator(7, 1),
+  ),
+  "col-start/col-end": (
+    name: (
+      "col-start",
+      "col-end",
+    ),
+    property: (
+      "grid-column-start",
+      "grid-column-end",
+    ),
+    value: value_map_generator(13, 1),
+  ),
+);
