@@ -92,7 +92,7 @@ $property-classes: (
       "both": both,
     ),
   ),
-  "flex-utility-justify": (
+  "flex-utility-justify-content": (
     name: (
       "justify",
     ),
@@ -101,21 +101,53 @@ $property-classes: (
     ),
     value: (
       "center": center,
+      "start": flex-start,
+      "end": flex-end,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly,
+    ),
+  ),
+  "flex-utility-justify-items": (
+    name: (
+      "justify-items",
+    ),
+    property: (
+      "justify-items",
+    ),
+    value: (
+      "center": center,
       "start": start,
       "end": end,
     ),
   ),
-  "flex-utility-align": (
+  "flex-utility-align-contents": (
     name: (
       "align",
+    ),
+    property: (
+      "align-content",
+    ),
+    value: (
+      "center": center,
+      "start": flex-start,
+      "end": flex-end,
+      "between": space-between,
+      "around": space-around,
+      "evenly": space-evenly,
+    ),
+  ),
+  "flex-utility-align-items": (
+    name: (
+      "align-items",
     ),
     property: (
       "align-items",
     ),
     value: (
       "center": center,
-      "start": start,
-      "end": end,
+      "start": flex-start,
+      "end": flex-end,
     ),
   ),
   "border": (

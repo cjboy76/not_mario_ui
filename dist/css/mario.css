@@ -1257,23 +1257,71 @@
 }
 
 .justify-start {
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .justify-end {
-  justify-content: end;
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-items-center {
+  justify-items: center;
+}
+
+.justify-items-start {
+  justify-items: start;
+}
+
+.justify-items-end {
+  justify-items: end;
 }
 
 .align-center {
-  align-items: center;
+  align-content: center;
 }
 
 .align-start {
-  align-items: start;
+  align-content: flex-start;
 }
 
 .align-end {
-  align-items: end;
+  align-content: flex-end;
+}
+
+.align-between {
+  align-content: space-between;
+}
+
+.align-around {
+  align-content: space-around;
+}
+
+.align-evenly {
+  align-content: space-evenly;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-end {
+  align-items: flex-end;
 }
 
 .border {
